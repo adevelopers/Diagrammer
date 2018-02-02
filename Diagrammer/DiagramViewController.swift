@@ -11,6 +11,8 @@ import UIKit
 
 class DiagramViewController: UIViewController {
 
+    var lastTapPoint: CGPoint = .zero
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -34,6 +36,12 @@ class DiagramViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            lastTapPoint = touch.location(in: view)
+        }
+    }
+    
     func configureNavigationBar() {
         navigationItem.setRightBarButton(
             UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem)),
@@ -52,6 +60,6 @@ class DiagramViewController: UIViewController {
         let angle = 2 * Double.pi / Double(count) * Double(number)
         return CGPoint(x: radius * cos(CGFloat(angle)), y: radius * sin(CGFloat(angle)))
     }
-
+    
 }
 
