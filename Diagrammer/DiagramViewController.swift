@@ -40,6 +40,14 @@ class DiagramViewController: UIViewController {
             animated: true
         )
     }
+    
+    @objc func addNewItem() {
+        let itemView = ItemView("Итем")
+        itemView.backgroundColor =  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        itemView.center = lastTapPoint
+        view.addSubview(itemView)
+    }
+    
     func positionOnOrbital(number: Int, count: Int, radius: CGFloat = 150) -> CGPoint {
         let angle = 2 * Double.pi / Double(count) * Double(number)
         return CGPoint(x: radius * cos(CGFloat(angle)), y: radius * sin(CGFloat(angle)))
