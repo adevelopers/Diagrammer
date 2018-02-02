@@ -22,6 +22,9 @@ class DiagramViewController: UIViewController {
     var fromPoint: CGPoint = .zero
     var toPoint: CGPoint = .zero
     
+    // move element
+    var moveItem: ItemView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -61,6 +64,28 @@ class DiagramViewController: UIViewController {
                 }
             }
             break
+        case .moveElement:
+            if let moveView = touch.view as? ItemView {
+                moveItem = moveView
+            }
+            break
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+
+        if (mode == .moveElement) {
+            moveItem.center = touch.location(in: view)
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if mode == .moveElement {
+            mode = .normal
         }
     }
     
@@ -74,8 +99,13 @@ class DiagramViewController: UIViewController {
             UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem)),
             UIBarButtonItem(title: "Add Link", style: .plain, target: self, action: #selector(setModeAddLink)),
             UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clear)),
+            UIBarButtonItem(title: "Move", style: .plain, target: self, action: #selector(setModeMove)),
             ],
             animated: true)
+    }
+    
+    @objc func setModeMove() {
+        mode = .moveElement
     }
     
     @objc func setModeAddLink() {
