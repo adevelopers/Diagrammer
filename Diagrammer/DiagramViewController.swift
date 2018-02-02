@@ -24,13 +24,11 @@ class DiagramViewController: UIViewController {
         
         let n = 6
         for i in 1...n {
-            let blueView = ItemView("Мяу")
+            let blueView = ItemView("Тяф")
             blueView.backgroundColor =  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
             view.addSubview(blueView)
-          
             let newPoint = positionOnOrbital(number: i, count: n, radius: 250)
             blueView.center = CGPoint(x: newPoint.x + redView.center.x, y: newPoint.y + redView.center.y)
-            
             let linkView = LinkView(blueView.center, redView.getNearestPoint(blueView), .black)
             view.insertSubview(linkView, at: 0)
         }
