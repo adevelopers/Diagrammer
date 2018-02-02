@@ -16,6 +16,7 @@
 		711B4E45202368AE00AD468B /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E44202368AE00AD468B /* ItemView.swift */; };
 		711B4E4720237A3400AD468B /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4620237A3400AD468B /* LinkView.swift */; };
 		711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E492024739800AD468B /* CGRect+Extensions.swift */; };
+		711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4C20247C3F00AD468B /* DiagramMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		711B4E44202368AE00AD468B /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		711B4E4620237A3400AD468B /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		711B4E492024739800AD468B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
+		711B4E4C20247C3F00AD468B /* DiagramMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		711B4E422023687F00AD468B /* Diagram */ = {
 			isa = PBXGroup;
 			children = (
+				711B4E4B20247BD300AD468B /* Enums */,
 				711B4E3F202366D100AD468B /* Protocols */,
 				711B4E432023688900AD468B /* Views */,
 			);
@@ -106,6 +109,14 @@
 				711B4E492024739800AD468B /* CGRect+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		711B4E4B20247BD300AD468B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				711B4E4C20247C3F00AD468B /* DiagramMode.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				711B4E412023678500AD468B /* INearestable.swift in Sources */,
 				711B4E2E202365B200AD468B /* AppDelegate.swift in Sources */,
 				711B4E45202368AE00AD468B /* ItemView.swift in Sources */,
+				711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */,
 				711B4E4720237A3400AD468B /* LinkView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
