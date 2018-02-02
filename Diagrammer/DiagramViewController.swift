@@ -13,6 +13,7 @@ class DiagramViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
         
         let redView = ItemView("Мяу")
             redView.backgroundColor = #colorLiteral(red: 1, green: 0.8951038415, blue: 0.7990858605, alpha: 1)
@@ -33,6 +34,12 @@ class DiagramViewController: UIViewController {
         }
     }
     
+    func configureNavigationBar() {
+        navigationItem.setRightBarButton(
+            UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem)),
+            animated: true
+        )
+    }
     func positionOnOrbital(number: Int, count: Int, radius: CGFloat = 150) -> CGPoint {
         let angle = 2 * Double.pi / Double(count) * Double(number)
         return CGPoint(x: radius * cos(CGFloat(angle)), y: radius * sin(CGFloat(angle)))
