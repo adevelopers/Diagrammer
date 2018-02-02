@@ -14,5 +14,6 @@ enum DiagramMode {
     case normal
     case addElement
     case addLink
+    case moveElement
 
 }
