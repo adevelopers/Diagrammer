@@ -22,6 +22,11 @@ class DiagramViewController: UIViewController {
     var fromPoint: CGPoint = .zero
     var toPoint: CGPoint = .zero
     
+    // move element
+    var moveItem: ItemView!
+    
+    var links: [LinkView] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -61,6 +66,36 @@ class DiagramViewController: UIViewController {
                 }
             }
             break
+        case .moveElement:
+            if let moveView = touch.view as? ItemView {
+                moveItem = moveView
+            }
+            break
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+
+        if (mode == .moveElement) {
+            moveItem.center = touch.location(in: view)
+            updateLinks()
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if mode == .moveElement {
+            updateLinks()
+            mode = .normal
+        }
+    }
+    
+    private func updateLinks() {
+        links.forEach {
+            $0.update()
         }
     }
     
@@ -74,8 +109,13 @@ class DiagramViewController: UIViewController {
             UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem)),
             UIBarButtonItem(title: "Add Link", style: .plain, target: self, action: #selector(setModeAddLink)),
             UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clear)),
+            UIBarButtonItem(title: "Move", style: .plain, target: self, action: #selector(setModeMove)),
             ],
             animated: true)
+    }
+    
+    @objc func setModeMove() {
+        mode = .moveElement
     }
     
     @objc func setModeAddLink() {
@@ -94,8 +134,9 @@ class DiagramViewController: UIViewController {
     }
     
     func addLink(from first: ItemView, to second: ItemView ) {
-        let linkView = LinkView(first.center, second.getNearestPoint(first), .black)
+        let linkView = LinkView(first, second, .black)
         view.insertSubview(linkView, at: 0)
+        links.append(linkView)
     }
     
 }
