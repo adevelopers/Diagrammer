@@ -26,7 +26,7 @@ class DiagramViewController: UIViewController {
         let n = 6
         for i in 1...n {
             let blueView = ItemView("Тяф")
-            blueView.backgroundColor =  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+            blueView.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
             view.addSubview(blueView)
             let newPoint = positionOnOrbital(number: i, count: n, radius: 250)
             blueView.center = CGPoint(x: newPoint.x + redView.center.x, y: newPoint.y + redView.center.y)
@@ -36,23 +36,42 @@ class DiagramViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        switch mode {
+        case .normal:
+            
+            break
+        case .addElement:
+            
+            break
+        case .addLink:
+            
+            break
+        }
+        
         if let touch = touches.first {
             lastTapPoint = touch.location(in: view)
         }
     }
     
     func configureNavigationBar() {
-        navigationItem.setRightBarButton(
-            UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem)),
-            animated: true
-        )
+        navigationItem.setRightBarButtonItems([
+                UIBarButtonItem(title: "Add Link", style: .plain, target: self, action: #selector(setModeAddLink)),
+                UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem)),
+            ],
+            animated: true)
+    }
+    
+    @objc func setModeAddLink() {
+        mode = .addLink
     }
     
     @objc func addNewItem() {
+        mode = .addElement
         let itemView = ItemView("Итем")
         itemView.backgroundColor =  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         itemView.center = lastTapPoint
         view.addSubview(itemView)
+        mode = .normal
     }
     
     func positionOnOrbital(number: Int, count: Int, radius: CGFloat = 150) -> CGPoint {
@@ -61,4 +80,3 @@ class DiagramViewController: UIViewController {
     }
     
 }
-
