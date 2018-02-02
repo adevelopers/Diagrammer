@@ -15,6 +15,7 @@
 		711B4E412023678500AD468B /* INearestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E402023678500AD468B /* INearestable.swift */; };
 		711B4E45202368AE00AD468B /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E44202368AE00AD468B /* ItemView.swift */; };
 		711B4E4720237A3400AD468B /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4620237A3400AD468B /* LinkView.swift */; };
+		711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E492024739800AD468B /* CGRect+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		711B4E402023678500AD468B /* INearestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INearestable.swift; sourceTree = "<group>"; };
 		711B4E44202368AE00AD468B /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		711B4E4620237A3400AD468B /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		711B4E492024739800AD468B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				711B4E422023687F00AD468B /* Diagram */,
+				711B4E482024736300AD468B /* Extensions */,
 				711B4E2D202365B200AD468B /* AppDelegate.swift */,
 				711B4E2F202365B200AD468B /* DiagramViewController.swift */,
 				711B4E31202365B200AD468B /* Main.storyboard */,
@@ -95,6 +98,14 @@
 				711B4E4620237A3400AD468B /* LinkView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		711B4E482024736300AD468B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				711B4E492024739800AD468B /* CGRect+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				711B4E30202365B200AD468B /* DiagramViewController.swift in Sources */,
+				711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */,
 				711B4E412023678500AD468B /* INearestable.swift in Sources */,
 				711B4E2E202365B200AD468B /* AppDelegate.swift in Sources */,
 				711B4E45202368AE00AD468B /* ItemView.swift in Sources */,

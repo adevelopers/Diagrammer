@@ -21,6 +21,7 @@ class ItemView: UIView {
         label.text = title
         label.textAlignment = .center
         addSubview(label)
+        
     }
     
     override init(frame: CGRect) {
@@ -30,28 +31,7 @@ class ItemView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
-}
-
-
-
-extension CGRect {
     
-    var left: CGFloat {
-        return origin.x
-    }
-    
-    var top: CGFloat {
-        return origin.y
-    }
-    
-    var right: CGFloat {
-        return origin.x + width
-    }
-    
-    var bottom: CGFloat {
-        return origin.y + height
-    }
 }
 
 extension ItemView: INearestable {
