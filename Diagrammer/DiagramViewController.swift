@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class DiagramViewController: UIViewController {
 
     var mode: DiagramMode = .normal
@@ -74,6 +73,7 @@ class DiagramViewController: UIViewController {
         navigationItem.setRightBarButtonItems([
             UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewItem)),
             UIBarButtonItem(title: "Add Link", style: .plain, target: self, action: #selector(setModeAddLink)),
+            UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clear)),
             ],
             animated: true)
     }
@@ -84,6 +84,13 @@ class DiagramViewController: UIViewController {
     
     @objc func addNewItem() {
         mode = .addElement
+    }
+    
+    @objc func clear() {
+        mode = .normal
+        view.subviews.forEach {
+            $0.removeFromSuperview()
+        }
     }
     
     func addLink(from first: ItemView, to second: ItemView ) {
