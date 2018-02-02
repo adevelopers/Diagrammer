@@ -46,12 +46,19 @@ class LinkView: UIView {
     private var _first: CGPoint = .zero
     private var _second: CGPoint = .zero
     private var _lineColor: UIColor = UIColor.black
-    var withShadow: Bool = false
     
-    convenience init(_ first: CGPoint, _ second: CGPoint,_ color: UIColor) {
+    var first: ItemView!
+    var second: ItemView!
+    
+    var withShadow: Bool = false
+ 
+    convenience init(_ first: ItemView, _ second: ItemView,_ color: UIColor) {
         self.init(frame: UIScreen.main.bounds)
-        _first = first
-        _second = second;
+        self.first = first
+        self.second = second
+        _first = first.center
+        
+        _second = second.getNearestPoint(first);
         backgroundColor = UIColor.clear
         _lineColor = color
         ConfigureArrow()
@@ -59,6 +66,7 @@ class LinkView: UIView {
             AddShadow()
         }
     }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,6 +77,9 @@ class LinkView: UIView {
     }
     
     func ConfigureArrow() {
+        layer.sublayers?.forEach {
+            $0.removeFromSuperlayer()
+        }
         let path = ArrowHelper().Arrow( _first, _second, 3, 13, 20)
         let arrowLayer = CAShapeLayer()
         arrowLayer.fillColor = _lineColor.cgColor
@@ -88,4 +99,11 @@ class LinkView: UIView {
         _lineColor = color
     }
 
+    func update() {
+        _first = first.center
+        _second = second.getNearestPoint(first);
+        ConfigureArrow()
+        self.setNeedsDisplay()
+    }
+    
 }

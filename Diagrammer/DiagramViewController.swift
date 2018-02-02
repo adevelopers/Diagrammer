@@ -25,6 +25,8 @@ class DiagramViewController: UIViewController {
     // move element
     var moveItem: ItemView!
     
+    var links: [LinkView] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -79,13 +81,21 @@ class DiagramViewController: UIViewController {
 
         if (mode == .moveElement) {
             moveItem.center = touch.location(in: view)
+            updateLinks()
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if mode == .moveElement {
+            updateLinks()
             mode = .normal
+        }
+    }
+    
+    private func updateLinks() {
+        links.forEach {
+            $0.update()
         }
     }
     
@@ -124,8 +134,9 @@ class DiagramViewController: UIViewController {
     }
     
     func addLink(from first: ItemView, to second: ItemView ) {
-        let linkView = LinkView(first.center, second.getNearestPoint(first), .black)
+        let linkView = LinkView(first, second, .black)
         view.insertSubview(linkView, at: 0)
+        links.append(linkView)
     }
     
 }
