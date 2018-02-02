@@ -12,6 +12,7 @@ import UIKit
 class DiagramViewController: UIViewController {
 
     var lastTapPoint: CGPoint = .zero
+    var mode: DiagramMode = .normal
     
     override func viewDidLoad() {
         super.viewDidLoad()
