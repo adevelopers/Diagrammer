@@ -41,6 +41,27 @@ class DiagramViewController: UIViewController {
         case .normal:
             
             break
+        case .edit:
+            if let editView = touch.view as? ItemView {
+                let alertController = UIAlertController(title: "edit title", message: "title", preferredStyle: .alert)
+                alertController.addTextField(configurationHandler: { text in
+                    
+                })
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] action in
+                    if let textField = alertController.textFields?[0] {
+                        editView.label.text = textField.text
+                    }
+                    self?.mode = .normal
+                }))
+                
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] action in
+                    self?.mode = .normal
+                }))
+                
+                present(alertController, animated: true)
+            }
+            break
         case .addElement:
             lastTapPoint = touch.location(in: view)
             let itemView = ItemView("Итем")
@@ -110,8 +131,13 @@ class DiagramViewController: UIViewController {
             UIBarButtonItem(title: "Add Link", style: .plain, target: self, action: #selector(setModeAddLink)),
             UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clear)),
             UIBarButtonItem(title: "Move", style: .plain, target: self, action: #selector(setModeMove)),
+            UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(setEditMove)),
             ],
             animated: true)
+    }
+    
+    @objc func setEditMove() {
+        mode = .edit
     }
     
     @objc func setModeMove() {
