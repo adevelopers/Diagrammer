@@ -12,6 +12,8 @@ class ItemView: UIView {
     
     var label: UILabel!
     var title: String = "mew"
+    var controller: IPresent!
+    var canTap: Bool = false
     
     convenience init(_ title: String) {
         self.init(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
@@ -22,6 +24,8 @@ class ItemView: UIView {
         label.textAlignment = .center
         addSubview(label)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnItem(_:)))
+        addGestureRecognizer(tap)
     }
     
     override init(frame: CGRect) {
@@ -32,7 +36,31 @@ class ItemView: UIView {
         super.init(coder: aDecoder)
     }
     
+    @objc func tapOnItem(_ sender: Any) {
+        if canTap {
+            let modalController = ModalViewController()
+            modalController.modalTransitionStyle = .crossDissolve
+            modalController.modalPresentationStyle = .popover
+            modalController.popoverPresentationController?.sourceView = self
+            modalController.preferredContentSize = CGSize(width: 300, height: 300)
+            modalController.popoverPresentationController?.sourceRect = bounds
+            let popover = modalController.popoverPresentationController!
+            popover.delegate = self
+           
+            popover.permittedArrowDirections = .down
+            
+            if controller != nil {
+                controller.present(modalController, animated: true, completion: {})
+            }
+        }
+    }
+    
 }
+
+extension ItemView: UIPopoverPresentationControllerDelegate {
+    
+}
+
 
 extension ItemView: INearestable {
     

@@ -68,7 +68,9 @@ class DiagramViewController: UIViewController {
             let itemView = ItemView("Итем")
             itemView.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
             itemView.center = lastTapPoint
+            itemView.controller = self
             view.addSubview(itemView)
+            items.append(itemView)
             mode = .normal
             break
         case .addLink:
@@ -132,12 +134,21 @@ class DiagramViewController: UIViewController {
             UIBarButtonItem(title: "Add Link", style: .plain, target: self, action: #selector(setModeAddLink)),
             UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clear)),
             UIBarButtonItem(title: "Move", style: .plain, target: self, action: #selector(setModeMove)),
-            UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(setEditMove)),
+            UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(setModeEdit)),
+            UIBarButtonItem(title: "Modal", style: .plain, target: self, action: #selector(setModeModal)),
             ],
             animated: true)
     }
     
-    @objc func setEditMove() {
+    @objc func setModeModal() {
+        
+        items.forEach { item in
+            item.canTap = true
+        }
+        
+    }
+    
+    @objc func setModeEdit() {
         mode = .edit
     }
     
@@ -167,3 +178,5 @@ class DiagramViewController: UIViewController {
     }
     
 }
+
+extension DiagramViewController: IPresent {}
