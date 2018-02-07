@@ -26,6 +26,7 @@ class DiagramViewController: UIViewController {
     var moveItem: ItemView!
     
     var links: [LinkView] = []
+    var items: [ItemView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
