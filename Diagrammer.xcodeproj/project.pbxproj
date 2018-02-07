@@ -25,6 +25,7 @@
 		71B461FC202B6788004BBA87 /* eq4.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FB202B6788004BBA87 /* eq4.svg */; };
 		71B461FE202B678F004BBA87 /* eq5.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FD202B678F004BBA87 /* eq5.svg */; };
 		71B46200202B6795004BBA87 /* eq6.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FF202B6795004BBA87 /* eq6.svg */; };
+		71B46203202B706C004BBA87 /* SVGEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B46202202B706C004BBA87 /* SVGEquipment.swift */; };
 		9B81F8C66E2564E025031B27 /* Pods_Diagrammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA696E1EBF9661BE3F7B734 /* Pods_Diagrammer.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		71B461FB202B6788004BBA87 /* eq4.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq4.svg; sourceTree = "<group>"; };
 		71B461FD202B678F004BBA87 /* eq5.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq5.svg; sourceTree = "<group>"; };
 		71B461FF202B6795004BBA87 /* eq6.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq6.svg; sourceTree = "<group>"; };
+		71B46202202B706C004BBA87 /* SVGEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGEquipment.swift; sourceTree = "<group>"; };
 		B38404F821A05F3217D70C53 /* Pods-Diagrammer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.release.xcconfig"; sourceTree = "<group>"; };
 		DBFA3057728AA0A4241B6201 /* Pods-Diagrammer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.debug.xcconfig"; sourceTree = "<group>"; };
 		DEA696E1EBF9661BE3F7B734 /* Pods_Diagrammer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diagrammer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 		711B4E2C202365B200AD468B /* Diagrammer */ = {
 			isa = PBXGroup;
 			children = (
+				71B46201202B7047004BBA87 /* SVGViews */,
 				71B461F3202B64A1004BBA87 /* Assets */,
 				71B461EE202AFA50004BBA87 /* Modal */,
 				711B4E422023687F00AD468B /* Diagram */,
@@ -180,6 +183,14 @@
 				71B461F5202B6531004BBA87 /* eq1.svg */,
 			);
 			path = SVG;
+			sourceTree = "<group>";
+		};
+		71B46201202B7047004BBA87 /* SVGViews */ = {
+			isa = PBXGroup;
+			children = (
+				71B46202202B706C004BBA87 /* SVGEquipment.swift */,
+			);
+			path = SVGViews;
 			sourceTree = "<group>";
 		};
 		B82C7530C9B9C1BC9436A586 /* Pods */ = {
@@ -321,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				711B4E30202365B200AD468B /* DiagramViewController.swift in Sources */,
+				71B46203202B706C004BBA87 /* SVGEquipment.swift in Sources */,
 				711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */,
 				711B4E412023678500AD468B /* INearestable.swift in Sources */,
 				71B461F0202AFAF4004BBA87 /* IPresent.swift in Sources */,
