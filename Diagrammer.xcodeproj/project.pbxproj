@@ -19,6 +19,12 @@
 		711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4C20247C3F00AD468B /* DiagramMode.swift */; };
 		71B461F0202AFAF4004BBA87 /* IPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B461EF202AFAF4004BBA87 /* IPresent.swift */; };
 		71B461F2202AFB5B004BBA87 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B461F1202AFB5B004BBA87 /* ModalViewController.swift */; };
+		71B461F6202B6531004BBA87 /* eq1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461F5202B6531004BBA87 /* eq1.svg */; };
+		71B461F8202B677B004BBA87 /* eq2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461F7202B677B004BBA87 /* eq2.svg */; };
+		71B461FA202B6782004BBA87 /* eq3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461F9202B6782004BBA87 /* eq3.svg */; };
+		71B461FC202B6788004BBA87 /* eq4.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FB202B6788004BBA87 /* eq4.svg */; };
+		71B461FE202B678F004BBA87 /* eq5.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FD202B678F004BBA87 /* eq5.svg */; };
+		71B46200202B6795004BBA87 /* eq6.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FF202B6795004BBA87 /* eq6.svg */; };
 		9B81F8C66E2564E025031B27 /* Pods_Diagrammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA696E1EBF9661BE3F7B734 /* Pods_Diagrammer.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +43,12 @@
 		711B4E4C20247C3F00AD468B /* DiagramMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramMode.swift; sourceTree = "<group>"; };
 		71B461EF202AFAF4004BBA87 /* IPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPresent.swift; sourceTree = "<group>"; };
 		71B461F1202AFB5B004BBA87 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		71B461F5202B6531004BBA87 /* eq1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq1.svg; sourceTree = "<group>"; };
+		71B461F7202B677B004BBA87 /* eq2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq2.svg; sourceTree = "<group>"; };
+		71B461F9202B6782004BBA87 /* eq3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq3.svg; sourceTree = "<group>"; };
+		71B461FB202B6788004BBA87 /* eq4.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq4.svg; sourceTree = "<group>"; };
+		71B461FD202B678F004BBA87 /* eq5.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq5.svg; sourceTree = "<group>"; };
+		71B461FF202B6795004BBA87 /* eq6.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq6.svg; sourceTree = "<group>"; };
 		B38404F821A05F3217D70C53 /* Pods-Diagrammer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.release.xcconfig"; sourceTree = "<group>"; };
 		DBFA3057728AA0A4241B6201 /* Pods-Diagrammer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.debug.xcconfig"; sourceTree = "<group>"; };
 		DEA696E1EBF9661BE3F7B734 /* Pods_Diagrammer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diagrammer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +95,7 @@
 		711B4E2C202365B200AD468B /* Diagrammer */ = {
 			isa = PBXGroup;
 			children = (
+				71B461F3202B64A1004BBA87 /* Assets */,
 				71B461EE202AFA50004BBA87 /* Modal */,
 				711B4E422023687F00AD468B /* Diagram */,
 				711B4E482024736300AD468B /* Extensions */,
@@ -146,6 +159,27 @@
 				71B461F1202AFB5B004BBA87 /* ModalViewController.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		71B461F3202B64A1004BBA87 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				71B461F4202B64AC004BBA87 /* SVG */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		71B461F4202B64AC004BBA87 /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				71B461FF202B6795004BBA87 /* eq6.svg */,
+				71B461FD202B678F004BBA87 /* eq5.svg */,
+				71B461FB202B6788004BBA87 /* eq4.svg */,
+				71B461F9202B6782004BBA87 /* eq3.svg */,
+				71B461F7202B677B004BBA87 /* eq2.svg */,
+				71B461F5202B6531004BBA87 /* eq1.svg */,
+			);
+			path = SVG;
 			sourceTree = "<group>";
 		};
 		B82C7530C9B9C1BC9436A586 /* Pods */ = {
@@ -219,8 +253,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B46200202B6795004BBA87 /* eq6.svg in Resources */,
+				71B461FE202B678F004BBA87 /* eq5.svg in Resources */,
+				71B461FA202B6782004BBA87 /* eq3.svg in Resources */,
+				71B461F6202B6531004BBA87 /* eq1.svg in Resources */,
 				711B4E38202365B200AD468B /* LaunchScreen.storyboard in Resources */,
 				711B4E35202365B200AD468B /* Assets.xcassets in Resources */,
+				71B461FC202B6788004BBA87 /* eq4.svg in Resources */,
+				71B461F8202B677B004BBA87 /* eq2.svg in Resources */,
 				711B4E33202365B200AD468B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
