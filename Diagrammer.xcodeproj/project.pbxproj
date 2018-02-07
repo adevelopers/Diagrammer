@@ -18,6 +18,7 @@
 		711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E492024739800AD468B /* CGRect+Extensions.swift */; };
 		711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4C20247C3F00AD468B /* DiagramMode.swift */; };
 		71B461F0202AFAF4004BBA87 /* IPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B461EF202AFAF4004BBA87 /* IPresent.swift */; };
+		71B461F2202AFB5B004BBA87 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B461F1202AFB5B004BBA87 /* ModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		711B4E492024739800AD468B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		711B4E4C20247C3F00AD468B /* DiagramMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramMode.swift; sourceTree = "<group>"; };
 		71B461EF202AFAF4004BBA87 /* IPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPresent.swift; sourceTree = "<group>"; };
+		71B461F1202AFB5B004BBA87 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		711B4E2C202365B200AD468B /* Diagrammer */ = {
 			isa = PBXGroup;
 			children = (
+				71B461EE202AFA50004BBA87 /* Modal */,
 				711B4E422023687F00AD468B /* Diagram */,
 				711B4E482024736300AD468B /* Extensions */,
 				711B4E2D202365B200AD468B /* AppDelegate.swift */,
@@ -120,6 +123,14 @@
 				711B4E4C20247C3F00AD468B /* DiagramMode.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		71B461EE202AFA50004BBA87 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				71B461F1202AFB5B004BBA87 /* ModalViewController.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				711B4E2E202365B200AD468B /* AppDelegate.swift in Sources */,
 				711B4E45202368AE00AD468B /* ItemView.swift in Sources */,
 				711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */,
+				71B461F2202AFB5B004BBA87 /* ModalViewController.swift in Sources */,
 				711B4E4720237A3400AD468B /* LinkView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
