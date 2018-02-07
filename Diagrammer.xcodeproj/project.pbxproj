@@ -17,6 +17,7 @@
 		711B4E4720237A3400AD468B /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4620237A3400AD468B /* LinkView.swift */; };
 		711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E492024739800AD468B /* CGRect+Extensions.swift */; };
 		711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4C20247C3F00AD468B /* DiagramMode.swift */; };
+		71B461F0202AFAF4004BBA87 /* IPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B461EF202AFAF4004BBA87 /* IPresent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		711B4E4620237A3400AD468B /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		711B4E492024739800AD468B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		711B4E4C20247C3F00AD468B /* DiagramMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramMode.swift; sourceTree = "<group>"; };
+		71B461EF202AFAF4004BBA87 /* IPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPresent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				711B4E402023678500AD468B /* INearestable.swift */,
+				71B461EF202AFAF4004BBA87 /* IPresent.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				711B4E30202365B200AD468B /* DiagramViewController.swift in Sources */,
 				711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */,
 				711B4E412023678500AD468B /* INearestable.swift in Sources */,
+				71B461F0202AFAF4004BBA87 /* IPresent.swift in Sources */,
 				711B4E2E202365B200AD468B /* AppDelegate.swift in Sources */,
 				711B4E45202368AE00AD468B /* ItemView.swift in Sources */,
 				711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */,
