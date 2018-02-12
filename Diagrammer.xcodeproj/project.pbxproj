@@ -17,6 +17,7 @@
 		711B4E4720237A3400AD468B /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4620237A3400AD468B /* LinkView.swift */; };
 		711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E492024739800AD468B /* CGRect+Extensions.swift */; };
 		711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B4E4C20247C3F00AD468B /* DiagramMode.swift */; };
+		71517A0E2031ADB00000DA7C /* Diagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71517A0D2031ADB00000DA7C /* Diagram.swift */; };
 		71B461F0202AFAF4004BBA87 /* IPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B461EF202AFAF4004BBA87 /* IPresent.swift */; };
 		9B81F8C66E2564E025031B27 /* Pods_Diagrammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA696E1EBF9661BE3F7B734 /* Pods_Diagrammer.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		711B4E4620237A3400AD468B /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		711B4E492024739800AD468B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		711B4E4C20247C3F00AD468B /* DiagramMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramMode.swift; sourceTree = "<group>"; };
+		71517A0D2031ADB00000DA7C /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagram.swift; sourceTree = "<group>"; };
 		71B461EF202AFAF4004BBA87 /* IPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPresent.swift; sourceTree = "<group>"; };
 		B38404F821A05F3217D70C53 /* Pods-Diagrammer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.release.xcconfig"; sourceTree = "<group>"; };
 		DBFA3057728AA0A4241B6201 /* Pods-Diagrammer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		711B4E422023687F00AD468B /* Diagram */ = {
 			isa = PBXGroup;
 			children = (
+				71517A0C2031AD3D0000DA7C /* Models */,
 				711B4E4B20247BD300AD468B /* Enums */,
 				711B4E3F202366D100AD468B /* Protocols */,
 				711B4E432023688900AD468B /* Views */,
@@ -135,6 +138,14 @@
 				711B4E4C20247C3F00AD468B /* DiagramMode.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		71517A0C2031AD3D0000DA7C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				71517A0D2031ADB00000DA7C /* Diagram.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B82C7530C9B9C1BC9436A586 /* Pods */ = {
@@ -277,6 +288,7 @@
 				711B4E45202368AE00AD468B /* ItemView.swift in Sources */,
 				711B4E4D20247C3F00AD468B /* DiagramMode.swift in Sources */,
 				711B4E4720237A3400AD468B /* LinkView.swift in Sources */,
+				71517A0E2031ADB00000DA7C /* Diagram.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

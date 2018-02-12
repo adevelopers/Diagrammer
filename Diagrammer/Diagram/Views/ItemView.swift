@@ -15,8 +15,8 @@ class ItemView: UIView {
     var controller: IPresent!
     var canTap: Bool = false
     
-    convenience init(_ title: String) {
-        self.init(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    convenience init(_ title: String, frame: CGRect = CGRect(x: 0, y: 0, width: 200, height: 100)) {
+        self.init(frame: frame)
         self.title = title
         
         label = UILabel(frame: bounds)
@@ -72,4 +72,10 @@ extension ItemView: INearestable {
         return sqrt(pow(second.x - first.x, 2) + pow(second.y - first.y, 2))
     }
     
+}
+
+extension ItemView {
+    func asItem() -> Diagram.Item {
+        return Diagram.Item(title: self.title, rect: frame)
+    }
 }
