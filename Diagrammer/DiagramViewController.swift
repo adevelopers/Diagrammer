@@ -32,27 +32,7 @@ class DiagramViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        loadDiagram(from: "Dia1")
-    }
-    
-    func loadDiagram(from name: String) {
-        if let diagram = Diagram.load(from: name) {
-            print(diagram.title)
-            print(diagram.links.count)
-            for item in diagram.items {
-                let itemView = ItemView(item.title, frame: item.rect)
-                itemView.backgroundColor = .orange
-                view.addSubview(itemView)
-                items.append(itemView)
-            }
-            
-            for link in diagram.links {
-                let first = items[link.first]
-                let second = items[link.second]
-                addLink(from: first, to: second)
-            }
-            
-        }
+        loadDiagram()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -211,9 +191,30 @@ class DiagramViewController: UIViewController {
         
         navigationItem.setLeftBarButtonItems([
             UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveDiagram)),
+            UIBarButtonItem(title: "Load", style: .plain, target: self, action: #selector(loadDiagram)),
             ], animated: true)
     }
     
+    @objc func loadDiagram() {
+        let name = "Dia1"
+        if let diagram = Diagram.load(from: name) {
+            print(diagram.title)
+            print(diagram.links.count)
+            for item in diagram.items {
+                let itemView = ItemView(item.title, frame: item.rect)
+                itemView.backgroundColor = .orange
+                view.addSubview(itemView)
+                items.append(itemView)
+            }
+            
+            for link in diagram.links {
+                let first = items[link.first]
+                let second = items[link.second]
+                addLink(from: first, to: second)
+            }
+            
+        }
+    }
     
     
     @objc func saveDiagram() {
@@ -231,7 +232,6 @@ class DiagramViewController: UIViewController {
             let link = Diagram.Link(first: index1, second: index2)
             linksToSave.append(link)
         }
-        
         
         let diagram = Diagram(title: "Dia1", items: items.map { $0.asItem() } , links: linksToSave)
         diagram.save(diagram: "Dia1")
