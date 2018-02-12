@@ -26,6 +26,8 @@
 		71B461FE202B678F004BBA87 /* eq5.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FD202B678F004BBA87 /* eq5.svg */; };
 		71B46200202B6795004BBA87 /* eq6.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71B461FF202B6795004BBA87 /* eq6.svg */; };
 		71B46203202B706C004BBA87 /* SVGEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B46202202B706C004BBA87 /* SVGEquipment.swift */; };
+		71B46207202C5652004BBA87 /* EquipmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B46205202C5652004BBA87 /* EquipmentCell.swift */; };
+		71B46208202C5652004BBA87 /* EquipmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B46206202C5652004BBA87 /* EquipmentCell.xib */; };
 		9B81F8C66E2564E025031B27 /* Pods_Diagrammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA696E1EBF9661BE3F7B734 /* Pods_Diagrammer.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		71B461FD202B678F004BBA87 /* eq5.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq5.svg; sourceTree = "<group>"; };
 		71B461FF202B6795004BBA87 /* eq6.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eq6.svg; sourceTree = "<group>"; };
 		71B46202202B706C004BBA87 /* SVGEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGEquipment.swift; sourceTree = "<group>"; };
+		71B46205202C5652004BBA87 /* EquipmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCell.swift; sourceTree = "<group>"; };
+		71B46206202C5652004BBA87 /* EquipmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentCell.xib; sourceTree = "<group>"; };
 		B38404F821A05F3217D70C53 /* Pods-Diagrammer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.release.xcconfig"; sourceTree = "<group>"; };
 		DBFA3057728AA0A4241B6201 /* Pods-Diagrammer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diagrammer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diagrammer/Pods-Diagrammer.debug.xcconfig"; sourceTree = "<group>"; };
 		DEA696E1EBF9661BE3F7B734 /* Pods_Diagrammer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diagrammer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,7 @@
 		71B461EE202AFA50004BBA87 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				71B46204202C5618004BBA87 /* Cells */,
 				71B461F1202AFB5B004BBA87 /* ModalViewController.swift */,
 			);
 			path = Modal;
@@ -191,6 +196,15 @@
 				71B46202202B706C004BBA87 /* SVGEquipment.swift */,
 			);
 			path = SVGViews;
+			sourceTree = "<group>";
+		};
+		71B46204202C5618004BBA87 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				71B46205202C5652004BBA87 /* EquipmentCell.swift */,
+				71B46206202C5652004BBA87 /* EquipmentCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B82C7530C9B9C1BC9436A586 /* Pods */ = {
@@ -268,6 +282,7 @@
 				71B461FE202B678F004BBA87 /* eq5.svg in Resources */,
 				71B461FA202B6782004BBA87 /* eq3.svg in Resources */,
 				71B461F6202B6531004BBA87 /* eq1.svg in Resources */,
+				71B46208202C5652004BBA87 /* EquipmentCell.xib in Resources */,
 				711B4E38202365B200AD468B /* LaunchScreen.storyboard in Resources */,
 				711B4E35202365B200AD468B /* Assets.xcassets in Resources */,
 				71B461FC202B6788004BBA87 /* eq4.svg in Resources */,
@@ -334,6 +349,7 @@
 				711B4E30202365B200AD468B /* DiagramViewController.swift in Sources */,
 				71B46203202B706C004BBA87 /* SVGEquipment.swift in Sources */,
 				711B4E4A2024739800AD468B /* CGRect+Extensions.swift in Sources */,
+				71B46207202C5652004BBA87 /* EquipmentCell.swift in Sources */,
 				711B4E412023678500AD468B /* INearestable.swift in Sources */,
 				71B461F0202AFAF4004BBA87 /* IPresent.swift in Sources */,
 				711B4E2E202365B200AD468B /* AppDelegate.swift in Sources */,

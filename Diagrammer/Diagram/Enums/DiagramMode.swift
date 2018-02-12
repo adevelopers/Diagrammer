@@ -16,5 +16,6 @@ enum DiagramMode {
     case addLink
     case moveElement
     case edit
+    case delete
 
 }

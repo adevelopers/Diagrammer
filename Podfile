@@ -6,6 +6,6 @@ target 'Diagrammer' do
   use_frameworks!
 
   # Pods for Diagrammer
-  pod "Macaw", "0.9.1"
+
 
 end
