@@ -42,12 +42,11 @@ class ItemView: UIView {
             modalController.modalTransitionStyle = .crossDissolve
             modalController.modalPresentationStyle = .popover
             modalController.popoverPresentationController?.sourceView = self
-            modalController.preferredContentSize = CGSize(width: 300, height: 300)
+            modalController.preferredContentSize = CGSize(width: 300, height: 250)
             modalController.popoverPresentationController?.sourceRect = bounds
             let popover = modalController.popoverPresentationController!
             popover.delegate = self
-           
-            popover.permittedArrowDirections = .down
+            popover.permittedArrowDirections = .any
             
             if controller != nil {
                 controller.present(modalController, animated: true, completion: {})

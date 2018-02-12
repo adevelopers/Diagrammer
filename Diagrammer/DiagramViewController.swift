@@ -42,6 +42,22 @@ class DiagramViewController: UIViewController {
         case .normal:
             
             break
+        case .delete:
+            if let viewForDelete = touch.view as? ItemView {
+                if let index = items.index(of: viewForDelete) {
+                    viewForDelete.removeFromSuperview()
+                    //get links
+                    let filtredLinks =  links.filter { $0.first == viewForDelete || $0.second == viewForDelete  }
+                    filtredLinks.forEach {
+                        if let indexLink = links.index(of: $0) {
+                            links.remove(at: indexLink)
+                        }
+                        $0.removeFromSuperview()
+                    }
+                    items.remove(at: index)
+                }
+                mode = .normal
+            }
         case .edit:
             if let editView = touch.view as? ItemView {
                 let alertController = UIAlertController(title: "edit title", message: "title", preferredStyle: .alert)
@@ -62,7 +78,7 @@ class DiagramViewController: UIViewController {
                 
                 present(alertController, animated: true)
             }
-            break
+            
         case .addElement:
             lastTapPoint = touch.location(in: view)
             let itemView = ItemView("Итем")
@@ -135,17 +151,14 @@ class DiagramViewController: UIViewController {
             UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clear)),
             UIBarButtonItem(title: "Move", style: .plain, target: self, action: #selector(setModeMove)),
             UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(setModeEdit)),
-            UIBarButtonItem(title: "Modal", style: .plain, target: self, action: #selector(setModeModal)),
+            UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(setModeDelete)),
             ],
+            
             animated: true)
     }
     
-    @objc func setModeModal() {
-        
-        items.forEach { item in
-            item.canTap = true
-        }
-        
+    @objc func setModeDelete() {
+        mode = .delete
     }
     
     @objc func setModeEdit() {
@@ -177,6 +190,7 @@ class DiagramViewController: UIViewController {
         links.append(linkView)
     }
     
+
 }
 
 extension DiagramViewController: IPresent {}
