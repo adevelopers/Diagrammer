@@ -43,21 +43,53 @@ class DiagramViewController: UIViewController {
             
             break
         case .delete:
-            if let viewForDelete = touch.view as? ItemView {
-                if let index = items.index(of: viewForDelete) {
-                    viewForDelete.removeFromSuperview()
-                    //get links
-                    let filtredLinks =  links.filter { $0.first == viewForDelete || $0.second == viewForDelete  }
-                    filtredLinks.forEach {
-                        if let indexLink = links.index(of: $0) {
-                            links.remove(at: indexLink)
+            let delay = 2.0
+            if
+                let viewForDelete = touch.view as? ItemView,
+                let index = items.index(of: viewForDelete)
+            {
+                
+                viewForDelete.backgroundColor = .red
+                UIView.animate(withDuration: delay,
+                               animations: { viewForDelete.alpha = 0 }, completion: {[weak self] isOK in
+
+                viewForDelete.removeFromSuperview()
+                
+                let filtredLinks =  self?.links.filter {
+                    $0.first == viewForDelete ||
+                    $0.second == viewForDelete
+                                }
+                                
+                guard let linksForDelete = filtredLinks else {
+                    return
+                }
+                                
+                linksForDelete.forEach {
+                        if let indexLink = self?.links.index(of: $0) {
+                            self?.links.remove(at: indexLink)
                         }
                         $0.removeFromSuperview()
-                    }
-                    items.remove(at: index)
                 }
+                self?.items.remove(at: index)
+                })
+                
+            }
+                
+            if
+                let linkView = touch.view as? LinkView,
+                let indexLink = links.index(of: linkView)
+            {
+                linkView.SetColor(.red)
+                UIView.animate(withDuration: 2.0, animations: {
+                    linkView.alpha = 0
+                }, completion: { [weak self] isOK in
+                    self?.links.remove(at: indexLink)
+                    linkView.removeFromSuperview()
+                    
+                })
                 mode = .normal
             }
+            
         case .edit:
             if let editView = touch.view as? ItemView {
                 let alertController = UIAlertController(title: "edit title", message: "title", preferredStyle: .alert)
