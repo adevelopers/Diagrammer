@@ -32,27 +32,7 @@ class DiagramViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        loadDiagram(from: "Dia1")
-    }
-    
-    func loadDiagram(from name: String) {
-        if let diagram = Diagram.load(from: name) {
-            print(diagram.title)
-            print(diagram.links.count)
-            for item in diagram.items {
-                let itemView = ItemView(item.title, frame: item.rect)
-                itemView.backgroundColor = .orange
-                view.addSubview(itemView)
-                items.append(itemView)
-            }
-            
-            for link in diagram.links {
-                let first = items[link.first]
-                let second = items[link.second]
-                addLink(from: first, to: second)
-            }
-            
-        }
+        loadDiagram()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -80,7 +60,7 @@ class DiagramViewController: UIViewController {
                 let filtredLinks =  self?.links.filter {
                     $0.first == viewForDelete ||
                     $0.second == viewForDelete
-                                }
+                }
                                 
                 guard let linksForDelete = filtredLinks else {
                     return
@@ -113,15 +93,17 @@ class DiagramViewController: UIViewController {
             }
             
         case .edit:
+            
             if let editView = touch.view as? ItemView {
+                
                 let alertController = UIAlertController(title: "edit title", message: "title", preferredStyle: .alert)
-                alertController.addTextField(configurationHandler: { text in
-                    
+                alertController.addTextField(configurationHandler: { field in
+                    field.text = editView.title
                 })
                 
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] action in
                     if let textField = alertController.textFields?[0] {
-                        editView.label.text = textField.text
+                        editView.title = textField.text ?? ""
                     }
                     self?.mode = .normal
                 }))
@@ -211,9 +193,31 @@ class DiagramViewController: UIViewController {
         
         navigationItem.setLeftBarButtonItems([
             UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveDiagram)),
+            UIBarButtonItem(title: "Load", style: .plain, target: self, action: #selector(loadDiagram)),
             ], animated: true)
     }
     
+    @objc func loadDiagram() {
+        let name = "Dia1"
+        clear()
+        if let diagram = Diagram.load(from: name) {
+            print(diagram.title)
+            print(diagram.links.count)
+            for item in diagram.items {
+                let itemView = ItemView(item.title, frame: item.rect)
+                itemView.backgroundColor = .orange
+                view.addSubview(itemView)
+                items.append(itemView)
+            }
+            
+            for link in diagram.links {
+                let first = items[link.first]
+                let second = items[link.second]
+                addLink(from: first, to: second)
+            }
+            
+        }
+    }
     
     
     @objc func saveDiagram() {
@@ -231,7 +235,6 @@ class DiagramViewController: UIViewController {
             let link = Diagram.Link(first: index1, second: index2)
             linksToSave.append(link)
         }
-        
         
         let diagram = Diagram(title: "Dia1", items: items.map { $0.asItem() } , links: linksToSave)
         diagram.save(diagram: "Dia1")
@@ -262,6 +265,9 @@ class DiagramViewController: UIViewController {
         view.subviews.forEach {
             $0.removeFromSuperview()
         }
+        items.removeAll()
+        links.removeAll()
+        
     }
     
     func addLink(from first: ItemView, to second: ItemView ) {

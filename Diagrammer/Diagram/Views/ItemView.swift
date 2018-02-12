@@ -11,7 +11,13 @@ import UIKit
 class ItemView: UIView {
     
     var label: UILabel!
-    var title: String = "mew"
+    var title: String = "mew" {
+        didSet {
+            if let label = label {
+                label.text = title
+            }
+        }
+    }
     var controller: IPresent!
     var canTap: Bool = false
     
