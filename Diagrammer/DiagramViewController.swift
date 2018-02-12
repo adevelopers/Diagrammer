@@ -26,13 +26,22 @@ class DiagramViewController: UIViewController {
     // move element
     var moveItem: ItemView!
     
+    // storeage diagram
     var links: [LinkView] = []
     var items: [ItemView] = []
+    
+    // save & load diagram
+    var diagramName: String = "Dia1" {
+        didSet {
+            title = diagramName
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         loadDiagram()
+        diagramName = "defaultDia"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -194,29 +203,77 @@ class DiagramViewController: UIViewController {
         navigationItem.setLeftBarButtonItems([
             UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveDiagram)),
             UIBarButtonItem(title: "Load", style: .plain, target: self, action: #selector(loadDiagram)),
+            UIBarButtonItem(title: "Change name", style: .plain, target: self, action: #selector(changeDiagramName)),
             ], animated: true)
     }
     
+    @objc func changeDiagramName() {
+        
+            let alertController = UIAlertController(title: "edit title", message: "title", preferredStyle: .alert)
+            alertController.addTextField(configurationHandler: { [weak self] field in
+                field.text = self?.diagramName
+            })
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] action in
+                if let textField = alertController.textFields?[0] {
+                    self?.diagramName = textField.text ?? ""
+                }
+                self?.mode = .normal
+            }))
+            
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] action in
+                self?.mode = .normal
+            }))
+            
+            present(alertController, animated: true)
+        
+    }
+    
     @objc func loadDiagram() {
-        let name = "Dia1"
-        clear()
-        if let diagram = Diagram.load(from: name) {
-            print(diagram.title)
-            print(diagram.links.count)
-            for item in diagram.items {
-                let itemView = ItemView(item.title, frame: item.rect)
-                itemView.backgroundColor = .orange
-                view.addSubview(itemView)
-                items.append(itemView)
+        
+        let fileManager = FileManager.default
+        var names: [String] = []
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        do {
+            let files = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            let jsonFiles = files.filter { $0.pathExtension == "json" }
+            print(jsonFiles)
+            jsonFiles.forEach {
+                let name =  $0.pathComponents.last ?? ""
+                names.append(name)
             }
             
-            for link in diagram.links {
-                let first = items[link.first]
-                let second = items[link.second]
-                addLink(from: first, to: second)
-            }
-            
+        } catch {
+            print("Error while enumerating files : \(error.localizedDescription)")
         }
+        
+        let diagramListViewController = DiagramListViewController(names: names) { [weak self] name in
+            self?.diagramName = name
+            if let diagram = Diagram.load(from: name) {
+                print(diagram.title)
+                print(diagram.links.count)
+                for item in diagram.items {
+                    let itemView = ItemView(item.title, frame: item.rect)
+                    itemView.backgroundColor = .orange
+                    self?.view.addSubview(itemView)
+                    self?.items.append(itemView)
+                }
+                
+                guard let items = self?.items else {
+                    return
+                }
+                
+                for link in diagram.links {
+                    let first = items[link.first]
+                    let second = items[link.second]
+                    self?.addLink(from: first, to: second)
+                }
+                
+            }
+        }
+        
+        present(diagramListViewController, animated: true)
+        clear()
     }
     
     
@@ -236,8 +293,8 @@ class DiagramViewController: UIViewController {
             linksToSave.append(link)
         }
         
-        let diagram = Diagram(title: "Dia1", items: items.map { $0.asItem() } , links: linksToSave)
-        diagram.save(diagram: "Dia1")
+        let diagram = Diagram(title: diagramName, items: items.map { $0.asItem() } , links: linksToSave)
+        diagram.save(diagram: diagramName)
     }
     
     @objc func setModeDelete() {
@@ -275,7 +332,6 @@ class DiagramViewController: UIViewController {
         view.insertSubview(linkView, at: 0)
         links.append(linkView)
     }
-    
 
 }
 
