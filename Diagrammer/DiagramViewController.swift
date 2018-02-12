@@ -60,7 +60,7 @@ class DiagramViewController: UIViewController {
                 let filtredLinks =  self?.links.filter {
                     $0.first == viewForDelete ||
                     $0.second == viewForDelete
-                                }
+                }
                                 
                 guard let linksForDelete = filtredLinks else {
                     return
@@ -93,15 +93,17 @@ class DiagramViewController: UIViewController {
             }
             
         case .edit:
+            
             if let editView = touch.view as? ItemView {
+                
                 let alertController = UIAlertController(title: "edit title", message: "title", preferredStyle: .alert)
-                alertController.addTextField(configurationHandler: { text in
-                    
+                alertController.addTextField(configurationHandler: { field in
+                    field.text = editView.title
                 })
                 
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] action in
                     if let textField = alertController.textFields?[0] {
-                        editView.label.text = textField.text
+                        editView.title = textField.text ?? ""
                     }
                     self?.mode = .normal
                 }))
@@ -197,6 +199,7 @@ class DiagramViewController: UIViewController {
     
     @objc func loadDiagram() {
         let name = "Dia1"
+        clear()
         if let diagram = Diagram.load(from: name) {
             print(diagram.title)
             print(diagram.links.count)
@@ -262,6 +265,9 @@ class DiagramViewController: UIViewController {
         view.subviews.forEach {
             $0.removeFromSuperview()
         }
+        items.removeAll()
+        links.removeAll()
+        
     }
     
     func addLink(from first: ItemView, to second: ItemView ) {
