@@ -11,16 +11,25 @@ import UIKit
 class ItemView: UIView {
     
     var label: UILabel!
-    var title: String = "mew"
+    var title: String = "mew" {
+        didSet {
+            if let label = label {
+                label.text = title
+            }
+        }
+    }
+    var controller: IPresent!
+    var canTap: Bool = false
     
-    convenience init(_ title: String) {
-        self.init(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    convenience init(_ title: String, frame: CGRect = CGRect(x: 0, y: 0, width: 200, height: 100)) {
+        self.init(frame: frame)
         self.title = title
         
         label = UILabel(frame: bounds)
         label.text = title
         label.textAlignment = .center
         addSubview(label)
+        
     }
     
     override init(frame: CGRect) {
@@ -30,29 +39,13 @@ class ItemView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
 }
 
-
-
-extension CGRect {
+extension ItemView: UIPopoverPresentationControllerDelegate {
     
-    var left: CGFloat {
-        return origin.x
-    }
-    
-    var top: CGFloat {
-        return origin.y
-    }
-    
-    var right: CGFloat {
-        return origin.x + width
-    }
-    
-    var bottom: CGFloat {
-        return origin.y + height
-    }
 }
+
 
 extension ItemView: INearestable {
     
@@ -85,4 +78,10 @@ extension ItemView: INearestable {
         return sqrt(pow(second.x - first.x, 2) + pow(second.y - first.y, 2))
     }
     
+}
+
+extension ItemView {
+    func asItem() -> Diagram.Item {
+        return Diagram.Item(title: self.title, rect: frame)
+    }
 }
